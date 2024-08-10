@@ -1,0 +1,6 @@
+1. Always have the image_pixel.exe, img.png, and config.txt file in the same folder alone.
+2. Always make sure the img file is in png format.
+3. Set your desired parameters in the config files and make sure to only change the numbers and nothing else.
+4. Run image_pixel.exe
+5. A control panel will open and show you the first photo - close the first photo, second photo, third photo. 
+6. Once all is closed the control panel will shut down and you will have the three new images generated.
