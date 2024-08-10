@@ -1,0 +1,3 @@
+add_value = 260
+min_noise = 20
+max_noise = 80
