@@ -86,3 +86,4 @@ image_path = 'img.png'  # Indicate that the image file is in the same folder as 
 config_path = 'config.txt'  # The path to the configuration file
 
 main(image_path, config_path)
+#Test
