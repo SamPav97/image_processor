@@ -19,11 +19,11 @@ def add_value_to_pixels(image, value):
     return added_image, clipped_image
 
 
-def subtract_uniform_noise(image, min_noise, max_noise):
-    # Generate a single random noise value for all pixels
-    noise = np.random.randint(min_noise, max_noise + 1)
+def subtract_random_noise(image, min_noise, max_noise):
+    # Generate a different random noise value for each pixel
+    noise = np.random.randint(min_noise, max_noise + 1, image.shape)
 
-    # Subtract the uniform noise value from the image
+    # Subtract the random noise value from each pixel
     subtracted_image = image - noise
 
     # Clip the values to be between 0 and 255 for display
@@ -73,11 +73,14 @@ def main(image_path, config_path):
     display_image(added_clipped_image, 'Image After Adding Value')
     save_image(added_clipped_image, 'image_after_adding_value.png')
 
-    # Step 3: Subtract uniform noise
-    subtracted_image, subtracted_clipped_image, noise = subtract_uniform_noise(added_image, min_noise, max_noise)
+    # Step 3: Subtract random noise (different noise for each pixel)
+    subtracted_image, subtracted_clipped_image, noise = subtract_random_noise(added_image, min_noise, max_noise)
 
-    # Display the final image with noise subtraction info
-    display_image(subtracted_clipped_image, f'Image After Subtracting Uniform Noise\nNoise Subtracted: {noise}')
+    # Calculate the mean noise subtracted
+    mean_noise_subtracted = np.mean(noise)
+
+    # Display the final image with mean noise subtraction info
+    display_image(subtracted_clipped_image, f'Image After Subtracting Noise\nMean Noise Subtracted: {mean_noise_subtracted:.2f}')
     save_image(subtracted_clipped_image, 'image_after_subtracting_noise.png')
 
 
